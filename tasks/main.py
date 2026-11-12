@@ -185,4 +185,20 @@ regex = r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z0-9]{6,}$"
 print(re.fullmatch(regex, "fjd3IR9")) 
 print(re.fullmatch(regex, "fjd3IR9")) 
 print(bool(re.fullmatch(regex, "fjd3IR9"))) 
- 
+
+
+
+# Задача 14 
+
+def perimeter(n):
+    
+    a, b = 1, 1
+    total_sum = 0
+    
+    for _ in range(n + 1):
+        total_sum += a
+        a, b = b, a + b
+        
+    return 4 * total_sum 
+
+print(perimeter(5)) 
