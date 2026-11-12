@@ -9,4 +9,16 @@ def get_middle(s):
 
 print(get_middle("test"))    
 print(get_middle("testing"))
- 
+
+
+# 2 
+
+def solution(number):
+    if number < 0:
+        return 0
+    target = number - 1
+    
+    def sum_to(k):
+        n = target // k
+        return k * n * (n + 1) // 2
+    return sum_to(3) + sum_to(5) - sum_to(15)
