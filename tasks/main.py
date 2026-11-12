@@ -164,3 +164,14 @@ def delete_nth(order, max_e):
     return result 
 
 print(delete_nth([1, 2, 3, 1, 2, 1, 2, 3,], 2))
+
+
+
+# Задача 12
+
+def int32_to_ip(int32):
+    return f"{(int32 >> 24) & 255}.{(int32 >> 16) & 255}.{(int32 >> 8) & 255}.{int32 & 255}" 
+
+print(int32_to_ip(2149583361))
+print(int32_to_ip(32))
+print(int32_to_ip(0))
