@@ -202,3 +202,22 @@ def perimeter(n):
     return 4 * total_sum 
 
 print(perimeter(5)) 
+
+
+
+# Задача 15 
+
+def fibonacci(n):
+    
+    cache = {0: 0, 1: 1}
+    
+    def fib_memo(x):
+        if x in cache:
+            return cache[x]
+        
+        cache[x] = fib_memo(x - 1) + fib_memo(x - 2)
+        return cache[x]
+        
+    return fib_memo(n) 
+
+print(fibonacci(10)) 
