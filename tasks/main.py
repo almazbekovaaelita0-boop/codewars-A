@@ -11,6 +11,7 @@ print(get_middle("test"))
 print(get_middle("testing"))
 
 
+
 # Задача 2 
 
 def solution(number):
@@ -22,6 +23,8 @@ def solution(number):
         n = target // k
         return k * n * (n + 1) // 2
     return sum_to(3) + sum_to(5) - sum_to(15)
+
+print(solution(10))
 
 
 
@@ -36,3 +39,14 @@ def solution(number):
     return sum(x for x in range(number) if x % 3 == 0 or x % 5 == 0)
 
 print(solution(10))
+
+
+# Задача 4
+
+def stray(arr):
+    result = 0
+    for num in arr:
+        result ^= num
+    return result
+
+print(stray([1, 2, 1]))
