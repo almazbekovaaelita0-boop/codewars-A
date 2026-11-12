@@ -59,3 +59,17 @@ def descending_order(num):
     return int("".join(sorted(str(num) , reverse=True)))
 
 print(descending_order(42145))
+
+
+
+# Задача 6
+
+def wave(people):
+    result = []
+    for i, char in enumerate(people):
+        if char != " ":
+            wave_step = people[:i] + char .upper() + people[i + 1:]
+            result.append(wave_step)
+    return result 
+
+print(wave("hello"))
