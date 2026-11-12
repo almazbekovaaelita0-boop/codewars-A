@@ -99,10 +99,10 @@ def is_valid_IP(strng):
     except ValueError:
         return False 
 
-    print(is_valid_IP("192.168.1.1"))
-    print(is_valid_IP("256.100.50.25"))
-    print(is_valid_IP("12.34.56"))
-    print(is_valid_IP("123.045.067.089")) 
+print(is_valid_IP("192.168.1.1"))
+print(is_valid_IP("256.100.50.25"))
+print(is_valid_IP("12.34.56"))
+print(is_valid_IP("123.045.067.089")) 
 
 
 
@@ -129,7 +129,20 @@ def is_valid_IP(strng):
     else:
         return "Battle Result: No victor on this battle field"
 
-    print(good_vs_evil('1 1 1 1 1 1', '1 1 1 1 1 1 1')) 
-    print(good_vs_evil('0 0 0 0 0 10', '0 1 1 1 1 0 0'))
-    print(good_vs_evil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
-    
+print(good_vs_evil('1 1 1 1 1 1', '1 1 1 1 1 1 1')) 
+print(good_vs_evil('0 0 0 0 0 10', '0 1 1 1 1 0 0'))
+print(good_vs_evil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
+
+
+
+    # Задача 10 
+
+    def count(s):
+    char_counts = {}
+    for char in s:
+        char_counts[char] = char_counts.get(char, 0) + 1
+    return char_counts
+
+print(count("aba")) 
+
+
