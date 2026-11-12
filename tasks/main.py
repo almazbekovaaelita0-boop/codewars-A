@@ -73,3 +73,15 @@ def wave(people):
     return result 
 
 print(wave("hello"))
+
+
+
+# Задача 7
+
+def make_readable(seconds):
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    secs = seconds % 60
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}" 
+
+print(make_readable(3665))
