@@ -244,3 +244,46 @@ def rot13(message):
     return ''.join(result)
 
 print(rot13("Hello, World!"))
+
+
+
+# Задача 17 
+
+def simple_assembler(program):
+    registers = {}
+    pc = 0  
+    
+    def resolve(val):
+        """Helper to get the value of a constant or a register."""
+        try:
+            return int(val)
+        except ValueError:
+            return registers.get(val, 0)
+            
+    while pc < len(program):
+        parts = program[pc].split()
+        cmd = parts[0]
+        
+        if cmd == 'mov':
+            reg, val = parts[1], parts[2]
+            registers[reg] = resolve(val)
+            pc += 1
+        elif cmd == 'inc':
+            reg = parts[1]
+            registers[reg] += 1
+            pc += 1
+        elif cmd == 'dec':
+            reg = parts[1]
+            registers[reg] -= 1
+            pc += 1
+        elif cmd == 'jnz':
+            x, y = parts[1], parts[2]
+            if resolve(x) != 0:
+                pc += resolve(y)  
+            else:
+                pc += 1
+                
+    return registers 
+
+code = ["mov a 5", "inc a", "dec a", "dec a", "jnz a -1", "inc a"]
+print(simple_assembler(code))
