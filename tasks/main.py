@@ -85,3 +85,22 @@ def make_readable(seconds):
     return f"{hours:02d}:{minutes:02d}:{secs:02d}" 
 
 print(make_readable(3665))
+
+
+
+# Задача 8
+
+import ipaddress
+
+def is_valid_IP(strng):
+    try:
+        ipaddress.IPv4Address(strng)
+        return True
+    except ValueError:
+        return False 
+
+    print(is_valid_IP("192.168.1.1"))
+    print(is_valid_IP("256.100.50.25"))
+    print(is_valid_IP("12.34.56"))
+    print(is_valid_IP("123.045.067.089")) 
+    
