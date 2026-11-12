@@ -175,3 +175,14 @@ def int32_to_ip(int32):
 print(int32_to_ip(2149583361))
 print(int32_to_ip(32))
 print(int32_to_ip(0))
+
+
+
+# Задача 13 
+
+regex = r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z0-9]{6,}$" 
+
+print(re.fullmatch(regex, "fjd3IR9")) 
+print(re.fullmatch(regex, "fjd3IR9")) 
+print(bool(re.fullmatch(regex, "fjd3IR9"))) 
+ 
