@@ -221,3 +221,26 @@ def fibonacci(n):
     return fib_memo(n) 
 
 print(fibonacci(10)) 
+
+
+
+# Задача 16 
+
+def rot13(message):
+    result = []
+    for char in message:
+        if 'a' <= char <= 'z':
+            
+            shifted = chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
+            result.append(shifted)
+        elif 'A' <= char <= 'Z':
+            
+            shifted = chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
+            result.append(shifted)
+        else:
+            
+            result.append(char)
+            
+    return ''.join(result)
+
+print(rot13("Hello, World!"))
