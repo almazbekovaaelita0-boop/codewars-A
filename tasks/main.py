@@ -50,3 +50,12 @@ def stray(arr):
     return result
 
 print(stray([1, 2, 1]))
+
+
+
+# Задача 5
+
+def descending_order(num):
+    return int("".join(sorted(str(num) , reverse=True)))
+
+print(descending_order(42145))
