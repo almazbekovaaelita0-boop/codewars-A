@@ -103,4 +103,33 @@ def is_valid_IP(strng):
     print(is_valid_IP("256.100.50.25"))
     print(is_valid_IP("12.34.56"))
     print(is_valid_IP("123.045.067.089")) 
+
+
+
+    # Задача 9
+
+    def good_vs_evil(good_input, evil_input):
+    # Worth values for each race
+    good_worth = [1, 2, 3, 3, 4, 10]
+    evil_worth = [1, 2, 2, 2, 3, 5, 10]
+    
+    # Convert input strings into lists of integers
+    good_counts = list(map(int, good_input.split()))
+    evil_counts = list(map(int, evil_input.split()))
+    
+    # Calculate total worth for each side using zip and sum
+    total_good = sum(g * w for g, w in zip(good_counts, good_worth))
+    total_evil = sum(e * w for e, w in zip(evil_counts, evil_worth))
+    
+    # Compare totals and return the appropriate result
+    if total_good > total_evil:
+        return "Battle Result: Good triumphs over Evil"
+    elif total_evil > total_good:
+        return "Battle Result: Evil eradicates all trace of Good"
+    else:
+        return "Battle Result: No victor on this battle field"
+
+    print(good_vs_evil('1 1 1 1 1 1', '1 1 1 1 1 1 1')) 
+    print(good_vs_evil('0 0 0 0 0 10', '0 1 1 1 1 0 0'))
+    print(good_vs_evil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
     
