@@ -146,3 +146,21 @@ print(good_vs_evil('1 0 0 0 0 0', '1 0 0 0 0 0 0'))
 print(count("aba")) 
 
 
+
+# Задача 11 
+
+def delete_nth(order, max_e):
+    counts = {}
+    result = []
+    
+    for num in order:
+    
+        current_count = counts.get(num, 0)
+        
+        if current_count < max_e:
+            result.append(num)
+            counts[num] = current_count + 1
+            
+    return result 
+
+print(delete_nth([1, 2, 3, 1, 2, 1, 2, 3,], 2))
