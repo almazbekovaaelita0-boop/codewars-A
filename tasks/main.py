@@ -471,3 +471,63 @@ print(longest_palindrome("babad"))
 print(longest_palindrome("abababa")) 
 print(longest_palindrome("cbbd"))    
 print(longest_palindrome("ab"))       
+
+
+
+# Задача 23
+
+import re
+
+def solve_runes(runes: str) -> int:
+    
+    used_digits = set(re.findall(r'[0-9]', runes))
+    
+    
+    for d in range(10):
+        digit_char = str(d)
+        if digit_char in used_digits:
+            continue
+            
+        
+        candidate = runes.replace('?', digit_char)
+        
+        
+        
+        
+        match = re.match(r'^([+-]?[0-9]+)([\+\-\*])([+-]?[0-9]+)=([+-]?[0-9]+)$', candidate)
+        if not match:
+            continue
+            
+        s1, op, s2, s3 = match.groups()
+        
+        
+        if has_invalid_leading_zero(s1) or has_invalid_leading_zero(s2) or has_invalid_leading_zero(s3):
+            continue
+            
+        n1, n2, n3 = int(s1), int(s2), int(s3)
+        
+        
+        if op == '+' and n1 + n2 == n3:
+            return d
+        elif op == '-' and n1 - n2 == n3:
+            return d
+        elif op == '*' and n1 * n2 == n3:
+            return d
+            
+    return -1
+
+def has_invalid_leading_zero(s: str) -> bool:
+    
+    if s.startswith('0') and len(s) > 1:
+        return True
+    if s.startswith('-0') and len(s) > 2:
+        return True
+    return False 
+
+print(solve_runes("1+1=?")) 
+print(solve_runes("123*45?=5?088")) 
+print(solve_runes("-5?*-1=5?")) 
+print(solve_runes("19--45=5?")) 
+print(solve_runes("??*??=302?")) 
+print(solve_runes("?*11=??")) 
+
