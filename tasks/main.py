@@ -556,3 +556,26 @@ print(find_all(10, 3))
 print(find_all(27, 3)) 
 print(find_all(84, 4)) 
 print(find_all(35, 6)) 
+
+
+
+# Задача 25 
+
+def solution(string, markers):
+    lines = string.split('\n')
+    result_lines = []
+    
+    for line in lines:
+        
+        min_idx = len(line)
+        for marker in markers:
+            idx = line.find(marker)
+            if idx != -1 and idx < min_idx:
+                min_idx = idx
+        
+
+        result_lines.append(line[:min_idx].rstrip())
+        
+    return '\n'.join(result_lines) 
+
+print(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])) 
