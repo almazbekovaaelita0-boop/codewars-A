@@ -579,3 +579,67 @@ def solution(string, markers):
     return '\n'.join(result_lines) 
 
 print(solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])) 
+
+
+
+# Задача 26
+
+def who_is_winner(pieces_position_list):
+    
+    board = [[None for _ in range(7)] for _ in range(6)]
+    col_map = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6}
+    
+    
+    col_heights = [5 for _ in range(7)]
+    
+    def check_winner():
+        
+        for r in range(6):
+            for c in range(4):
+                p = board[r][c]
+                if p and p == board[r][c+1] == board[r][c+2] == board[r][c+3]:
+                    return p
+                    
+        
+        for r in range(3):
+            for c in range(7):
+                p = board[r][c]
+                if p and p == board[r+1][c] == board[r+2][c] == board[r+3][c]:
+                    return p
+                    
+        
+        for r in range(3):
+            for c in range(4):
+                p = board[r][c]
+                if p and p == board[r+1][c+1] == board[r+2][c+2] == board[r+3][c+3]:
+                    return p
+                    
+        
+        for r in range(3, 6):
+            for c in range(4):
+                p = board[r][c]
+                if p and p == board[r-1][c+1] == board[r-2][c+2] == board[r-3][c+3]:
+                    return p
+                    
+        return None
+
+    
+    for move in pieces_position_list:
+        col_char, color = move.split('_')
+        c = col_map[col_char]
+        r = col_heights[c]
+        
+        board[r][c] = color
+        col_heights[c] -= 1  
+        
+        winner = check_winner()
+        if winner:
+            return winner
+            
+    return "Draw"
+
+mover = [
+    "A_Red", "B_Yellow", "A_Red", "B_Yellow",
+    "A_Red", "B_Yellow", "G_Red", "B_Yellow"
+]
+print(who_is_winner(moves))
