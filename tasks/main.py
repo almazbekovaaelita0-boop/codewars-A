@@ -821,3 +821,16 @@ print(42)
 print("Имя:", "Анна", "Возраст:", 25)
 name = "Алексей"
 print(name)
+
+
+
+# Задача 34 
+
+def summation(num):
+    return sum(range(1, num + 1)) 
+
+def summation(num):
+    return num * (num + 1) // 2
+
+print(summation(2))  
+print(summation(8))  
