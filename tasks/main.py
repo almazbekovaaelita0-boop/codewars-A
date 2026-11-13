@@ -288,6 +288,7 @@ def simple_assembler(program):
 code = ["mov a 5", "inc a", "dec a", "dec a", "jnz a -1", "inc a"]
 print(simple_assembler(code))
 
+<<<<<<< HEAD
 
 
 # Задача 18
@@ -301,6 +302,7 @@ def productFib(prod: int) -> list:
 
 print(productFib(714))
 print(productFib(800))
+
 
 
 
