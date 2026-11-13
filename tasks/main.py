@@ -643,3 +643,41 @@ mover = [
     "A_Red", "B_Yellow", "G_Red", "B_Yellow"
 ]
 print(who_is_winner(moves))
+
+
+
+# Задача 27
+
+def format_duration(seconds):
+    if seconds == 0:
+        return "now"
+    
+    
+    time_units = [
+        ("year", 365 * 24 * 60 * 60),
+        ("day", 24 * 60 * 60),
+        ("hour", 60 * 60),
+        ("minute", 60),
+        ("second", 1)
+    ]
+    
+    parts = []
+    for name, duration in time_units:
+        count = seconds // duration
+        if count > 0:
+            seconds %= duration
+            
+            unit_str = f"{count} {name}" + ("s" if count > 1 else "")
+            parts.append(unit_str)
+            
+    
+    if len(parts) == 1:
+        return parts[0]
+    elif len(parts) == 2:
+        return f"{parts[0]} and {parts[1]}"
+    else:
+        return ", ".join(parts[:-1]) + f" and {parts[-1]}" 
+
+print(format_duration(0))   
+print(format_duration(62)) 
+print(format_duration(3662)) 
