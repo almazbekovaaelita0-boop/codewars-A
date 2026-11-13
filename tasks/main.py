@@ -531,3 +531,28 @@ print(solve_runes("19--45=5?"))
 print(solve_runes("??*??=302?")) 
 print(solve_runes("?*11=??")) 
 
+
+
+# Задача 24
+
+from itertools import combinations_with_replacement
+
+def find_all(sum_val, count):
+    
+    valid_combs = [
+        "".join(map(str, c)) 
+        for c in combinations_with_replacement(range(1, 10), count) 
+        if sum(c) == sum_val
+    ]
+    
+    
+    if not valid_combs:
+        return []
+    
+    
+    return [len(valid_combs), int(valid_combs[0]), int(valid_combs[-1])] 
+
+print(find_all(10, 3)) 
+print(find_all(27, 3)) 
+print(find_all(84, 4)) 
+print(find_all(35, 6)) 
