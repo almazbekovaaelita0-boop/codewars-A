@@ -288,10 +288,3 @@ def simple_assembler(program):
 code = ["mov a 5", "inc a", "dec a", "dec a", "jnz a -1", "inc a"]
 print(simple_assembler(code))
 
-
-
-
-print(longest_palindrome("babad"))
-print(longest_palindrome("abababa")) 
-print(longest_palindrome("cbbd"))    
-print(longest_palindrome("ab"))       
