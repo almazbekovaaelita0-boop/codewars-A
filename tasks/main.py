@@ -375,3 +375,33 @@ print(game.play(6, 2))
 print(game.play(1, 1))  
 
 
+
+# Задача 20 
+
+def pick_peaks(arr):
+    pos = []
+    peaks = []
+    
+    if len(arr) <= 2:
+        return {"pos": pos, "peaks": peaks}
+        
+    peak_pos = -1
+    
+    for i in range(1, len(arr)):
+        if arr[i] > arr[i - 1]:
+            
+            peak_pos = i
+        elif arr[i] < arr[i - 1]:
+            
+            if peak_pos != -1:
+                pos.append(peak_pos)
+                peaks.append(arr[peak_pos])
+                peak_pos = -1  # Reset after confirming the peak
+        
+        
+        
+    return {"pos": pos, "peaks": peaks}
+
+
+print(pick_peaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3]))
+print(pick_peaks([1, 2, 2, 2, 1])) 
