@@ -808,3 +808,16 @@ print(get_sum(1, 1))
 print(get_sum(-1, 0))   
 print(get_sum(-1, 2))  
 
+
+
+# Задача 33 
+
+def filter_list(l):
+    return [x for x in l if isinstance(x, int)] 
+
+
+print("Привет, мир!")
+print(42)
+print("Имя:", "Анна", "Возраст:", 25)
+name = "Алексей"
+print(name)
