@@ -305,4 +305,73 @@ print(productFib(800))
 
 
 
+# Задача 19
+
+class SnakesLadders:
+    def __init__(self):
+        self.player1_pos = 0
+        self.player2_pos = 0
+        self.current_turn = 1  
+        self.game_over = False
+        
+        
+        self.ladders = {
+            2: 38, 7: 14, 8: 31, 15: 26, 21: 42, 28: 84,
+            36: 44, 51: 67, 71: 91, 78: 98, 87: 94
+        }
+        self.snakes = {
+            16: 6, 46: 25, 49: 11, 62: 19, 64: 60, 74: 53,
+            89: 68, 92: 88, 95: 75, 99: 80
+        }
+
+    def play(self, die1: int, die2: int) -> str:
+        
+        if self.game_over:
+            return "Game over!"
+        
+        player = self.current_turn
+        total_steps = die1 + die2
+        
+        
+        if player == 1:
+            self.player1_pos += total_steps
+            pos = self.player1_pos
+        else:
+            self.player2_pos += total_steps
+            pos = self.player2_pos
+            
+        
+        if pos > 100:
+            pos = 100 - (pos - 100)
+            
+        
+        if pos in self.ladders:
+            pos = self.ladders[pos]
+        elif pos in self.snakes:
+            pos = self.snakes[pos]
+            
+        
+        if player == 1:
+            self.player1_pos = pos
+        else:
+            self.player2_pos = pos
+            
+        
+        if pos == 100:
+            self.game_over = True
+            return f"Player {player} Wins!"
+            
+        
+        is_double = (die1 == die2)
+        if not is_double:
+            self.current_turn = 2 if self.current_turn == 1 else 1
+            
+        return f"Player {player} is on square {pos}" 
+
+game = SnakesLadders()
+print(game.play(1, 1))
+print(game.play(1, 5))
+print(game.play(6, 2))
+print(game.play(1, 1))  
+
 
