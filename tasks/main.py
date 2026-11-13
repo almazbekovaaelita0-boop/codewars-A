@@ -405,3 +405,20 @@ def pick_peaks(arr):
 
 print(pick_peaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3]))
 print(pick_peaks([1, 2, 2, 2, 1])) 
+
+
+
+# Задача 21
+
+def zeros(n: int) -> int:
+    count = 0
+    while n >= 5:
+        n //= 5
+        count += n
+    return count
+
+
+print(zeros(6))   
+print(zeros(12))  
+print(zeros(1000)) 
+ 
