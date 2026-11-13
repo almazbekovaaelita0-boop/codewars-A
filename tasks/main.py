@@ -681,3 +681,67 @@ def format_duration(seconds):
 print(format_duration(0))   
 print(format_duration(62)) 
 print(format_duration(3662)) 
+
+
+
+ # Задача 28
+
+ import math
+
+class Sudoku:
+    def __init__(self, board):
+        self.board = board
+
+    def is_valid(self):
+        if not self.board:
+            return False
+        
+        N = len(self.board)
+        
+        
+        for row in self.board:
+            if not isinstance(row, list) or len(row) != N:
+                return False
+                
+        
+        root = int(math.isqrt(N))
+        if root * root != N:
+            return False
+            
+        expected_set = set(range(1, N + 1))
+        
+        
+        for i in range(N):
+            row = self.board[i]
+            col = [self.board[r][i] for r in range(N)]
+            
+            if set(row) != expected_set or set(col) != expected_set:
+                return False
+                
+        
+        for sr in range(root):
+            for sc in range(root):
+                subgrid = []
+                for r in range(root):
+                    for c in range(root):
+                        subgrid.append(self.board[sr * root + r][sc * root + c])
+                        
+                if set(subgrid) != expected_set:
+                    return False
+                    
+        return True 
+
+good_sudoku = Sudoku([,
+ ,                    
+ ,                     
+                      
+,                      
+ ,                    
+ ,                     
+                  
+,                  
+ ,                 
+   [1, 9, 5, 2, 8, 7, 6, 3, 4]                   
+])    
+
+print(good_sudoku.is_valid())
