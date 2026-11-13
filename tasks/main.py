@@ -789,3 +789,22 @@ print(xo("ooxXm"))
 print(xo("zpzpzpp")) 
 print(xo("zzoo"))     
 
+
+
+# Задача 32 
+
+def get_sum(a, b):
+    
+    low = min(a, b)
+    high = max(a, b)
+    
+    
+    return sum(range(low, high + 1)) 
+
+print(get_sum(1, 0))   
+print(get_sum(1, 2))   
+print(get_sum(0, 1))   
+print(get_sum(1, 1))   
+print(get_sum(-1, 0))   
+print(get_sum(-1, 2))  
+
