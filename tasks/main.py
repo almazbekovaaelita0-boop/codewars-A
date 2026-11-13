@@ -760,4 +760,16 @@ def high_and_low(numbers):
 print(high_and_low("1 2 3 4 5"))     
 print(high_and_low("1 2 -3 4 5"))    
 print(high_and_low("1 9 3 4 -5"))
- 
+
+
+
+ # Задача 30
+
+ def make_negative(num):
+    
+    return -num if num > 0 else num
+
+
+print(make_negative(1))   
+print(make_negative(-5))  
+print(make_negative(0))   
